@@ -9,13 +9,13 @@ from typing import Any
 import httpx
 import orjson
 
-API_KEY = os.getenv("OPENAI_API_KEY")
+API_KEY = "xxx"
 assert API_KEY, "Please set the OPENAI_API_KEY environment variable"
 API_HTTP_HEADERS = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + API_KEY,
 }
-BASE_API_URL = "https://api.openai.com/v1"
+BASE_API_URL = "http://localhost:8000/v1"
 
 
 def async_exponential_backoff(retry_on=lambda err: True):

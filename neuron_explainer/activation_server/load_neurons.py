@@ -51,8 +51,10 @@ async def load_neuron_from_datasets(
     with a fallback to another dataset that covers all neurons.
     """
     dst = node_id_and_datasets.dst
+    print(f'node_id_and_datasets:{node_id_and_datasets}')
     datasets = node_id_and_datasets.datasets
     dataset_paths = [resolve_neuron_dataset(dataset, dst) for dataset in datasets]
+    print(f'dataset_paths:{dataset_paths}')
     layer_index = node_id_and_datasets.layer_index
     activation_index = node_id_and_datasets.activation_index
     for dataset_path in dataset_paths:

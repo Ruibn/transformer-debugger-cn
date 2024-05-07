@@ -318,6 +318,7 @@ def define_explainer_routes(
     @app.post("/explain", response_model=ExplanationResult, tags=["explainer"])
     async def explain(request: NodeIdAndDatasets) -> ExplanationResult:
         dataset_path, neuron_record = await load_neuron_from_datasets(request)
+        # print(f'neuron_record:{neuron_record}')
         cached_simulation_results = await _check_disk_for_simulation_results(request, dataset_path)
 
         if cached_simulation_results is not None:

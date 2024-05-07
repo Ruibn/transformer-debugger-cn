@@ -237,6 +237,8 @@ def load_neuron(dataset_path: str, layer: str | int, neuron: str | int) -> Neuro
 async def load_neuron_async(dataset_path: str, layer: str | int, neuron: str | int) -> NeuronRecord:
     """Async version of load_neuron."""
     file = osp.join(dataset_path, str(layer), f"{neuron}.json")
+    print(f"file:{file}")
+    # file = https://openaipublic.blob.core.windows.net/neuron-explainer/gpt2_small_data/collated-activations/10/42.json
     return await read_neuron_file(file)
 
 

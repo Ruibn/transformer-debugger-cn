@@ -127,6 +127,7 @@ class AttentionHeadOneAtATimeScorer:
             # from the response, extract the logit values for "0" (for weak) and "1" (for strong) to obtain
             # a float.
             choice = response["choices"][0]
+            print(f'response:f{response}')
             # for whatever reason `choice["logprobs"]["top_logprobs"]` is a list of dicts
             logprobs_dicts = choice["logprobs"]["content"][0]["top_logprobs"]
             extracted_probs = {d["token"]: d["logprob"] for d in logprobs_dicts}
